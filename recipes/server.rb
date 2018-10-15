@@ -2,19 +2,17 @@ package 'httpd' do
  action :install
 end
 
-file '/var/www/html/index.html' do
- content "<html><body>
- <h1>Welcome To My World !!!</h1><br>
- <table>
- <tr><td>HOSTNAME</td><td>#{node['hostname']}</td></tr>
- <tr><td>IPADDRESS</td><td>#{node['ipaddress']}</td></tr>
- <tr><td>CPU</td><td>#{node['cpu']['0']['mhz']}</td></tr>
- <tr><td>Memory</td><td>#{node['memory']['total']}</td></tr>
- </table>
- </body></html>"
+cookbook_file '/var/www/html/test.html' do
+ source 'test.html'
  action :create
- owner 'root'
- group 'root'
+end
+
+template '/var/www/html/index.html' do
+ source 'index.html.erb'
+ variables(
+  :name => "1st Working Server"
+ )
+ action :create
 end
 
 service 'httpd' do

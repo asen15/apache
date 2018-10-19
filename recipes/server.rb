@@ -14,7 +14,7 @@ end
 template '/var/www/html/index.html' do
  source 'index.html.erb'
  variables(
-  :name => "CHEF Working Server"
+	 :name => "CHEF Working Server With Active Clients..."
  )
  action :create
 # notifies :restart, 'service[httpd]', :immediately

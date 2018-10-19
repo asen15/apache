@@ -7,6 +7,8 @@
  <tr><td>CPU</td><td><%= node['cpu']['0']['mhz'] %></td></tr>
  <tr><td>Memory</td><td><%= node['memory']['total'] %></td></tr>
  <tr><td>NAME</td><td><%= @name %></td></tr>
+ <tr><td>Attribute 1</td><td><%= node['ws_config']['attr1'] %></td></tr>
+ <tr><td>Attribute 2</td><td><%= node['ws_config']['attr2'] %></td></tr>
  </table>
 
  <img src='flower.png'/>
